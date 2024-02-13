@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * 实现自动配置类 用于根据应用的配置和条件来创建名为whiteListConfig 的Bean 该Bean用于提供白名单配置信息
  */
 
+// 可以算作是一个组件注解，在 SpringBoot 启动时可以进行加载创建出 Bean 文
 @Configuration
 @ConditionalOnClass(WhiteListProperties.class)
 @EnableConfigurationProperties(WhiteListProperties.class)
@@ -22,6 +23,7 @@ public class WhiteListAutoConfigure {
 
     /**
      * 第二个注解 表示 当ioc容器中不存在名为whiteListConfig 的bean 创建这个bean资源
+     * 整个方法会在配置信息和Bean注册完成后，开始被实例化加载到 Spring 中
      * @param properties
      * @return
      */
